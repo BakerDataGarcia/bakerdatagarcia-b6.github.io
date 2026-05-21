@@ -4,12 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moto Sticker QR</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-   <link rel="shortcut icon" href="./img/logo.jpg" type="image/x-icon">
-</head>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="style"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  </noscript>
+
+  <link rel="shortcut icon" href="./img/logo.jpg" type="image/x-icon">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
       --bg-color: #f8fafc; --card-bg: #ffffff; --accent: #10b981;
       --text-main: #0f172a; --text-muted: #475569; --border-light: #e2e8f0;
@@ -25,7 +39,15 @@
         --navbar-bg: rgba(15,23,42,0.8); --shadow: 0 2px 8px rgba(0,0,0,0.3);
       }
     }
-    html, body { min-height: 100vh; background: var(--bg-color); color: var(--text-main); font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+
+
+    html, body {
+      min-height: 100vh;
+      background: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
     .oculto { display: none !important; }
     .pantalla { min-height: 100vh; display: flex; flex-direction: column; }
     #p-loading { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
@@ -103,19 +125,9 @@
     .ficha-status-badge { background: var(--status-bg); color: var(--status-text); padding: 4px 12px; border-radius: 20px; font-size: .75rem; font-weight: 600; border: 1px solid var(--status-border); }
     .ficha-container { max-width: 616px; margin: 16px auto; padding: 0 20px; }
     .ficha-profile-header { text-align: center; margin-bottom: 24px; }
-    .avatar-wrapper img {
-      width: 115px;           
-      height: 115px;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      padding: 4px;
-      margin: 0 auto 12px auto; 
-      display: block;
-      object-fit: cover;
-    }
+    .avatar-wrapper img { width: 115px; height: 115px; border-radius: 50%; border: 3px solid var(--accent); padding: 4px; margin: 0 auto 12px auto; display: block; object-fit: cover; }
     .ficha-profile-header h1 { font-size: 1.43rem; font-weight: 700; margin: 0; }
     .ficha-subtitle { color: var(--text-muted); font-size: .86rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
-
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px; }
     .info-card { background: var(--card-bg); padding: 12px 15px; border-radius: 11px; display: flex; flex-direction: row; align-items: center; gap: 10px; border: 1px solid var(--border-light); box-shadow: var(--shadow); }
     .info-card.full-width { grid-column: span 2; }
@@ -124,7 +136,6 @@
     .info-card .label { font-size: .66rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: .04em; white-space: nowrap; }
     .info-card .value { font-size: .96rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .info-card.full-width .value { white-space: normal; font-size: .92rem; }
-
     .emergency-section h3 { font-size: .86rem; margin-bottom: 12px; text-align: center; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
     .phone-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
     .btn-llamar { background: var(--phone-btn-bg); color: white; text-decoration: none; padding: 14px 17px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; font-weight: 600; box-shadow: 0 3px 12px rgba(225,29,72,.2); transition: background .2s, transform .15s; }
@@ -134,14 +145,95 @@
     .btn-llamar-tel { font-size: 13px; font-family: 'Courier New', monospace; opacity: .85; }
     .btn-llamar-icono { background: rgba(255,255,255,.2); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
     .ficha-id { font-family: 'Courier New', monospace; font-size: 11px; color: var(--text-muted); text-align: center; padding: 12px; border-top: none; margin-top: 4px; }
-
     .ficha-footer { padding: 5px 20px 20px; display: flex; flex-direction: column; align-items: center; gap: 4px; border-top: 1px solid var(--border-light); margin-top: 16px; }
     .ficha-footer-legal { font-size: 11px; color: var(--text-muted); text-align: center; line-height: 1.8; }
     .ficha-footer-legal a { color: var(--accent); text-decoration: none; font-weight: 600; }
     .ficha-footer-legal a:hover { text-decoration: underline; }
-</style>
-<body>
 
+    .contenedor-header {
+      background: #1e2326;
+      position: fixed;
+      width: 100%;
+      top: 0; left: 0;
+      z-index: 99;
+    }
+    .contenedor-header header {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    .contenedor-header header .logo a {
+      font-family: 'Righteous', cursive;
+      font-size: 36px;
+      color: #1CB698;
+      text-decoration: none;
+    }
+    .contenedor-header header ul { display: flex; list-style: none; }
+    .contenedor-header header nav ul li a {
+      color: #fff;
+      margin: 0 15px;
+      padding: 3px;
+      transition: color .5s;
+      text-decoration: none;
+    }
+    .contenedor-header header nav ul li a:hover { color: #1CB698; }
+    .nav-responsive {
+      background-color: #1CB698;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .inicio {
+      background:
+        linear-gradient(to top, rgba(30,35,38,.8), rgba(30,35,38,1)),
+        url(img/fondo.jpg);
+      background-size: cover;
+      background-attachment: local; 
+      height: 160vh;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+    .inicio .contenido-banner {
+      padding: 20px;
+      background-color: rgba(30, 35, 38, 0.6);
+      max-width: 400px;
+      margin: auto;
+      text-align: center;
+      border-radius: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,.5);
+    }
+    .inicio .contenido-banner img {
+      margin-top: 40px;
+      border: 10px solid #1CB698;
+      display: block;
+      width: 80%;
+      margin: auto;
+      border-radius: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    .inicio .contenido-banner h1 {
+      margin-top: 40px;
+      font-size: 45px;
+      font-family: 'Righteous', cursive;
+    }
+    .inicio .contenido-banner h2 { font-size: 20px; font-weight: normal; }
+    .inicio .contenido-banner h3 {
+      margin-top: 18px;
+      font-size: 22px;
+      font-family: 'Righteous', cursive;
+    }
+  </style>
+</head>
+<body>
+    
 <div id="p-loading" class="pantalla">
   <i class="loader"></i>
   <span class="loading-txt">Ten paciencia...</span>
@@ -270,7 +362,7 @@
   <div class="ficha-container">
     <div class="ficha-profile-header">
       <div class="avatar-wrapper">
-        <img id="ficha-foto" src="" alt="Foto de perfil">
+        <img id="ficha-foto" src="" alt="Foto de perfil" loading="lazy" decoding="async">
       </div>
       <h1 id="ficha-nombre"></h1>
       <p class="ficha-subtitle">Motociclista</p>
@@ -317,10 +409,11 @@
   </div>
 </div>
 
+<!-- ✅ OPTIMIZACIÓN 11: Firebase cargado con type="module" (ya era así — perfecto, no bloquea) -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyB0fs01xzRwNPDRQ-uA5XGTQ50TtKMaiTs",
     authDomain: "moto-sticker-qr-28c34.firebaseapp.com",
@@ -339,30 +432,26 @@
     let pts = l.split('-');
     return pts[pts.length - 1].split('.')[0];
   }
-  
+
   function ocultarTel(t) {
     const l = t.replace(/\D/g, '');
     if (l.length < 4) return t;
     return l.slice(-10, -8) + '••••••' + l.slice(-2);
   }
-  
+
   const PERFIL_ID = obtenerID();
   document.getElementById('badge-id').textContent = 'Sticker ID: ' + PERFIL_ID;
   window._dG = null;
 
   window.mostrar = function(id, replaceHistory = false) {
-    if (id === 'p-formulario' && window._dG) {
-      id = 'p-ficha';
-    }
-    const pantallas = ['p-loading','p-bienvenida','p-formulario','p-exito','p-ficha'];
-    pantallas.forEach(p => document.getElementById(p).classList.add('oculto'));
+    if (id === 'p-formulario' && window._dG) id = 'p-ficha';
+    ['p-loading','p-bienvenida','p-formulario','p-exito','p-ficha'].forEach(p =>
+      document.getElementById(p).classList.add('oculto'));
     document.getElementById(id).classList.remove('oculto');
-    window.scrollTo(0,0);
-    if (replaceHistory) {
-      history.replaceState({ pantalla: id }, '', window.location.href);
-    } else {
-      history.pushState({ pantalla: id }, '', window.location.href);
-    }
+    window.scrollTo(0, 0);
+    replaceHistory
+      ? history.replaceState({ pantalla: id }, '', window.location.href)
+      : history.pushState({ pantalla: id }, '', window.location.href);
   };
 
   window.mostrarFicha = function(d, replaceHistory = false) {
@@ -375,8 +464,7 @@
     document.getElementById('ficha-id-label').textContent = 'ID: ' + (d.id || '—');
     const foto = document.getElementById('ficha-foto');
     foto.src = d.fotoUrl || '';
-    if (!d.fotoUrl) foto.style.display = 'none';
-    else foto.style.display = 'block';
+    foto.style.display = d.fotoUrl ? 'block' : 'none';
     const contenedor = document.getElementById('ficha-contactos');
     contenedor.innerHTML = '';
     if (d.contactos) {
@@ -393,28 +481,19 @@
   };
 
   window.verMiPerfil = function() {
-    if (window._dG) {
-      mostrarFicha(window._dG, true);
-    } else {
-      cargarPerfil();
-    }
+    window._dG ? mostrarFicha(window._dG, true) : cargarPerfil();
   };
 
   window.regresarDesdeFormulario = function() {
-    if (window._dG) {
-      mostrarFicha(window._dG, false);
-    } else {
-      mostrar('p-bienvenida', false);
-    }
+    window._dG ? mostrarFicha(window._dG, false) : mostrar('p-bienvenida', false);
   };
 
   async function cargarPerfil() {
     try {
       const snap = await getDoc(doc(db, 'perfiles', PERFIL_ID));
       if (snap.exists()) {
-        const data = snap.data();
-        window._dG = data;
-        mostrarFicha(data, true);
+        window._dG = snap.data();
+        mostrarFicha(window._dG, true);
       } else {
         window._dG = null;
         mostrar('p-bienvenida', true);
@@ -426,21 +505,21 @@
   }
 
   window.guardarPerfil = async function() {
-    const nombre = document.getElementById('f-nombre').value.trim();
-    const fecha = document.getElementById('f-fecha').value.trim();
-    const sangre = document.getElementById('f-sangre').value;
-    const alergias = document.getElementById('f-alergias').value.trim();
-    const senas = document.getElementById('f-senas').value.trim();
+    const nombre    = document.getElementById('f-nombre').value.trim();
+    const fecha     = document.getElementById('f-fecha').value.trim();
+    const sangre    = document.getElementById('f-sangre').value;
+    const alergias  = document.getElementById('f-alergias').value.trim();
+    const senas     = document.getElementById('f-senas').value.trim();
     const c1n = document.getElementById('f-c1-nombre').value.trim();
     const c1t = document.getElementById('f-c1-tel').value.trim();
     const c2n = document.getElementById('f-c2-nombre').value.trim();
     const c2t = document.getElementById('f-c2-tel').value.trim();
     const c3n = document.getElementById('f-c3-nombre').value.trim();
     const c3t = document.getElementById('f-c3-tel').value.trim();
-    const fotoFile = document.getElementById('f-foto').files[0];
-    const errorDiv = document.getElementById('form-error');
+    const fotoFile  = document.getElementById('f-foto').files[0];
+    const errorDiv  = document.getElementById('form-error');
     const errorText = document.getElementById('error-texto');
-    const btn = document.getElementById('btn-guardar');
+    const btn       = document.getElementById('btn-guardar');
 
     if (!nombre || !fecha || !sangre || !alergias || !c1t) {
       errorText.textContent = 'Por favor llena todos los campos requeridos.';
@@ -449,6 +528,7 @@
     }
     btn.disabled = true;
     btn.innerHTML = 'Guardando...';
+
     try {
       let fotoUrl = '';
       if (fotoFile) {
@@ -473,21 +553,15 @@
       await setDoc(doc(db, 'perfiles', PERFIL_ID), datos);
       window._dG = datos;
 
-      // Notificación a Pushover (endpoint central)
       try {
         const respuesta = await fetch('https://us-central1-moto-sticker-qr-28c34.cloudfunctions.net/notificarPushover', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            nombre: nombre,
-            id: PERFIL_ID,
-            repo: 'bakerdatagarcia-b6.github.io'
-          })
+          body: JSON.stringify({ nombre, id: PERFIL_ID, repo: 'bakerdatagarcia-b6.github.io' })
         });
-        const datosRespuesta = await respuesta.json();
-        console.log('Notificación enviada a Pushover:', datosRespuesta);
-      } catch (error) {
-        console.error('Error al notificar a Pushover:', error);
+        console.log('Notificación Pushover:', await respuesta.json());
+      } catch (e) {
+        console.error('Error Pushover:', e);
       }
 
       document.getElementById('exito-id-valor').textContent = PERFIL_ID;
@@ -504,7 +578,7 @@
   window.previsualizarFoto = function(input) {
     if (!input.files || !input.files[0]) return;
     const reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = e => {
       let preview = document.querySelector('.foto-preview');
       if (!preview) {
         preview = document.createElement('img');
@@ -516,7 +590,6 @@
     reader.readAsDataURL(input.files[0]);
   };
 
-  // Inicializar
   cargarPerfil();
   window.addEventListener('popstate', () => cargarPerfil());
 </script>
